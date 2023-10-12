@@ -1,6 +1,6 @@
-current_room = "pit"
+current_room = "the_pit"
 rooms = {
-    "pit": {
+    "the_pit": {
         "enter": "You slide to a halt covered in dust.",
         "exit": None,
         "desc": "A dark room with stone walls and floor",
