@@ -1,4 +1,6 @@
 import os
+import rooms
+
 
 def say(msg):
     print(msg)
@@ -19,30 +21,25 @@ def prompt_until(msg, until, tries=4):
     if count == tries:
         return False
 
+def enter(room_name):
+    room = rooms.rooms[room_name]
+    print(room["enter"])
+
+def act(cmd):
+    print ("you said " + cmd)
+
+def ask():
+    cmd = input("> ")
+    act(cmd)
+    ask()
 
 def begin():
-    say("WELCOME TO M Y M N")
+    print ("WELCOME TO M Y M N")
     un = input("ENTER USERNAME\n> ")
-    if not prompt_until("PLEASE LOGON WITH USER", un):
-        lose()
-    if not prompt_until("PLEASE LOGON WITH PASSWORD", "JOSHUA"):
-        lose()  
-    else: 
-        say("WELCOME, DR. FALKEN")
-        while True:
-            print("> ", end="")
-            i = input()
-            if i == "hello":
-                say("HELLO DR. FALKEN")
-            elif i == "how are you?":
-                say("I AM WELL, SHALL WE PLAY A GAME?")
-            elif i == "what game?":
-                say("\nCHESS\nPOKER\nFIGHTER COMBAT\nGUERRILLA ENGAGEMENT\nDESERT WARFARE\nAIR-TO-GROUND ACTIONS\nTHEATERWIDE TACTICAL WARFARE\nTHEATERWIDE BIOTOXIC AND CHEMICAL WARFARE\n\nGLOBAL THERMONUCLEAR WAR")
-            elif i == "bye":
-                lose()
-                break;
-            else:
-                say("you said:" + i)
+    print ("WELCOME " + un)
+    enter(rooms.current_room)
+    ask()
+
 
 
 def lose():
