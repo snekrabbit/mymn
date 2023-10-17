@@ -18,6 +18,7 @@ def begin():
     print ("WELCOME TO M Y M N")
     un = input("ENTER USERNAME\n> ")
     print ("WELCOME " + un)
+
     enter(rooms.current_room)
     ask()
 

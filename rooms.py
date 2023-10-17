@@ -1,5 +1,16 @@
-current_room = "the_pit"
+current_room = "the_plane"
 rooms = {
+    "the_plane": {
+        "enter": """You just arrived for your internship, but now Dr Plimph wants you to come to Siberia. You stand at the bottom of stairs to board as you see the last of the team disappearing inside.
+        You've come this far, surely you have to FOLLOW?""",
+        "automate": "FOLLOW"
+    },
+    "the_cave": {
+        "enter": "You hurried from the airport and stopped suddenly on a small road. You can see the uncovered cave door",
+    },
+    "the_entrance": {
+        "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall. You stay behind, nervously wondering if you should follow.",
+    },
     "the_pit": {
         "enter": "You slide to a halt covered in dust.",
         "exit": None,
