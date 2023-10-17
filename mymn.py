@@ -1,18 +1,35 @@
 import os
 import rooms
 import utils
+import time
+import sys
 
-def enter(room_name):
-    room = rooms.rooms[room_name]
-    print(room["enter"])
+def get_room(name=rooms.current_room):
+    return rooms.rooms[name]
+
+def enter(name):
+    print(get_room()["enter"])
 
 def act(cmd):
     print ("you said " + cmd)
+    if cmd == "quit":
+        lose()
 
-def ask():
-    cmd = input("> ")
+def loop():
+    cmd = get_room()["automate"]
+    if cmd:
+        time.sleep(1)
+        print ("> ", end="")
+        for c in cmd:
+            print (c, end="")
+            sys.stdout.flush()
+            time.sleep(0.1)
+        print("")    
+    else:
+        cmd = input("> ")
+    
     act(cmd)
-    ask()
+    loop()
 
 def begin():
     print ("WELCOME TO M Y M N")
@@ -20,10 +37,11 @@ def begin():
     print ("WELCOME " + un)
 
     enter(rooms.current_room)
-    ask()
+    loop()
 
 def lose():
-    say("GAME OVER")
+    utils.say("GAME OVER")
+    sys.exit (0)
 
 
 begin()

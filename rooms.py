@@ -2,8 +2,9 @@ current_room = "the_plane"
 rooms = {
     "the_plane": {
         "enter": """You just arrived for your internship, but now Dr Plimph wants you to come to Siberia. You stand at the bottom of stairs to board as you see the last of the team disappearing inside.
-        You've come this far, surely you have to FOLLOW?""",
-        "automate": "FOLLOW"
+
+You've come this far, surely you have to GO UP?""",
+        "automate": "quit"
     },
     "the_cave": {
         "enter": "You hurried from the airport and stopped suddenly on a small road. You can see the uncovered cave door",
@@ -17,7 +18,6 @@ rooms = {
         "desc": "A dark room with stone walls and floor",
         "directions": {
             "N": {"desc": "a glowing door", "room": "the_end"},
-            "D": {"desc": "a dark hole", "room": "pit_hole"}
         }
     },
     "the_end": {
