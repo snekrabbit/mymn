@@ -8,7 +8,7 @@ def get_room(name=rooms.current_room):
     return rooms.rooms[name]
 
 def enter(name):
-    print(get_room()["enter"])
+    utils.say(get_room()["enter"])
 
 def act(cmd):
     print ("you said " + cmd)
@@ -18,14 +18,9 @@ def act(cmd):
 def loop():
     cmd = get_room()["automate"]
     if cmd:
-        time.sleep(1)
-        print ("> ", end="")
-        for c in cmd:
-            print (c, end="")
-            sys.stdout.flush()
-            time.sleep(0.1)
-        print("")    
+        utils.type("> " + cmd) 
     else:
+        # no automate key, ask user
         cmd = input("> ")
     
     act(cmd)
@@ -40,7 +35,7 @@ def begin():
     loop()
 
 def lose():
-    utils.say("GAME OVER")
+    print("GAME OVER")
     sys.exit (0)
 
 

@@ -3,6 +3,7 @@
 ## mymn
 - [ ] Write intro scene
 - [ ] Show commands 
+- [ ] Write command file
 
 ## story ideas
 - [ ] you fall down a hole into the lower depths
