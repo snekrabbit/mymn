@@ -2,6 +2,11 @@ import os
 import time
 import sys
 
+VERBOSE = False
+def trace(msg):
+    if VERBOSE:
+        print("### " + msg)
+
 def prompt_until(msg, until, tries=4):
     say(msg)
     count = 1

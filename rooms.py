@@ -1,10 +1,15 @@
-current_room = "the_plane"
 rooms = {
     "the_plane": {
-        "enter": """You just arrived for your internship, but now Dr Plimph wants you to come to Siberia. You stand at the bottom of stairs to board as you see the last of the team disappearing inside.
+        "enter": """You just arrived for your internship, but now Dr Plimph wants you to come to Siberia. You stand at the bottom of stairs to board as you see the last of the team disappearing inside.""",
+        "exit": """But we just got here! fine""",
+        "automate": "go up",
+        "directions": {
+            "UP": {
+                "desc": "You've come this far, surely you have to GO UP the stairs?", 
+                "room": "the_cave"
+            },
+        }
 
-You've come this far, surely you have to GO UP?""",
-        "automate": "quit"
     },
     "the_cave": {
         "enter": "You hurried from the airport and stopped suddenly on a small road. You can see the uncovered cave door",
@@ -29,3 +34,12 @@ You've come this far, surely you have to GO UP?""",
         "enter": "You fall forever",
     }
 }
+current_room = rooms["the_plane"]
+
+def get_room_name(room):
+    for k, v in rooms.rooms.items():
+        if v == room:
+            return k
+    raise Exception("unknown room " + repr(room)) 
+
+

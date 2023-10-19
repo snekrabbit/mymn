@@ -1,9 +1,13 @@
 # TODO
 
 ## mymn
-- [ ] Write intro scene
+- [x] Write intro scene
 - [ ] Show commands 
 - [ ] Write command file
+- [ ] Complain if 'boop' action
+- [ ] Continue story
+- [ ] automate for cave room
+
 
 ## story ideas
 - [ ] you fall down a hole into the lower depths
