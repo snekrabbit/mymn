@@ -12,7 +12,22 @@ rooms = {
 
     },
     "the_cave": {
-        "enter": "You hurried from the airport and stopped suddenly on a small road. You can see the uncovered cave door",
+        "enter": "You hurried from the airport and stopped suddenly on a small road. To the North, you can see the uncovered cave door",
+        "automate": "go north",
+        "directions": {
+            "N": {
+                "desc": "Man that's scary, but this is your job right?", 
+                "room": "the_door"
+            },
+        }
+    },
+    "the_door": {
+        "enter": """The gigantic door is covered in hieroglyphics. Oh, that must be why they needed Dr. Plimph!
+
+He scans the text, starts laughing, and puts his finger in the belly-button of the small goblin in the corner.
+
+The door slides upward with a loud crack!.
+    """,
     },
     "the_entrance": {
         "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall. You stay behind, nervously wondering if you should follow.",

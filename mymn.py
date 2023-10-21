@@ -14,7 +14,9 @@ def enter(room):
 
 def exit(room):
     utils.trace ("exiting " + repr(room))
-    utils.say(room["exit"])
+    exit_msg = room.get("exit")
+    if exit_msg:
+        utils.say(exit_msg)
 
 def act(cmd):
     utils.trace ("you said " + cmd)
@@ -53,6 +55,7 @@ def act(cmd):
 
 def move(from_room, to_room):
     exit(from_room)
+    utils.say("...", 0.2)
     enter(to_room)
 
 def loop():
