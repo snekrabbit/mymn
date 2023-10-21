@@ -37,12 +37,17 @@ def act(cmd):
         dir = "S"
     elif cmd == "go west":
         dir = "W"
-    else:
-        utils.say("we can't move " + cmd + " in here")
+
+    dirs = current_room.get("directions")
+    if dirs:
+        next_room_dict = dirs.get(dir)
+        if next_room_dict:
+            next_room = rooms.rooms[next_room_dict["room"]]
+
+    if not next_room:
+        utils.say("we can't '" + cmd + "' in here")
         return
 
-    next_room_name = current_room["directions"][dir]["room"]
-    next_room = rooms.rooms[next_room_name]
     move(current_room, next_room)
 
 def move(from_room, to_room):
