@@ -38,6 +38,7 @@ def act(cmd):
     elif cmd == "go west":
         dir = "W"
 
+    next_room = None
     dirs = current_room.get("directions")
     if dirs:
         next_room_dict = dirs.get(dir)
