@@ -25,17 +25,17 @@ def act(cmd):
         lose()
         return
 
-    if cmd == "go up":
+    if cmd in ["go up", "go u", "up", "u"]:
         dir = "UP"
-    elif cmd == "go down":
+    elif cmd in ["go down", "go d", "down", "d"]:
         dir = "DOWN"
-    elif cmd == "go north":
+    elif cmd in ["go north", "go n", "north", "n"]:
         dir = "N"
-    elif cmd == "go east":
+    elif cmd in ["go east", "go e", "east", "e"]:
         dir = "E"
-    elif cmd == "go south":
+    elif cmd in ["go south", "go s", "south", "s"]:
         dir = "S"
-    elif cmd == "go west":
+    elif cmd in ["go west", "go w", "west", "w"]:
         dir = "W"
 
     dirs = current_room.get("directions")
