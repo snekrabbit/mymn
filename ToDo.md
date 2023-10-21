@@ -7,7 +7,9 @@
 - [ ] Complain if 'boop' action
 - [ ] Continue story
 - [ ] automate for cave room
-
+- [ ] -t for trace mode
+- [ ] -s for starting room
+- [ ] add utils.fact('username') to read from user or memory file
 
 ## story ideas
 - [ ] you fall down a hole into the lower depths

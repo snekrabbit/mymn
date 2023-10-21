@@ -27,16 +27,20 @@ def say(msg, char_wait=0.01, line_wait=1):
     for c in msg:
         print (c, end="")
         sys.stdout.flush()
-        if c == "\n" and last_c != "\n":
-            time.sleep(line_wait)
+        if c == "\n":
+            if last_c == "\n":
+                continue
+            else:
+                time.sleep(line_wait)
+                print("")
         else:
             time.sleep(char_wait)
         last_c = c
-    print("") 
+    print("")
 
 def type(msg):
-    time.sleep(1)
-    say(msg, 0.15, 0.15)  
+    time.sleep(1.5)
+    say(msg, 0.15, 0.15)
     time.sleep(0.5)
 
 
