@@ -30,8 +30,9 @@ The door slides upward with a loud crack!.
     """,
     },
     "the_entrance": {
-        "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall. You stay behind, nervously wondering if you should follow.",
+        "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall, giggling maniacally. You stay behind, nervously wondering if you should follow.",
     },
+
     "the_pit": {
         "enter": "You slide to a halt covered in dust.",
         "exit": None,

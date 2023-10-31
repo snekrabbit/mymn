@@ -1,12 +1,12 @@
 # TODO
 
 ## mymn
-- [x] Write intro scene
-- [ ] Show commands 
+- [ ] print direction messages on screen in enter()
+- [ ] beautify the text for each room and room transition
+- [ ] Show commands in help()
 - [ ] Write command file
-- [ ] Complain if 'boop' action
+- [x] Complain if 'boop' action
 - [ ] Continue story
-- [ ] automate for cave room
 
 
 ## story ideas
