@@ -2,12 +2,12 @@ rooms = {
     "the_plane": {
         "enter": """Dr. Plimph just welcomed you to Cairo for your egyptology internship, your dream job!
 But before you can unpack your bags he says that you're both going to Siberia to examine a mysterious cave covered in hieroglyphics.
-At the plane stairs, you pause. Is this crazy?""",
-        "exit": """We just got here, but why not?""",
+You hesitate at the stairs of the plane as you see Dr. Plimph disappear inside.""",
+        "exit": """The things I do for this job""",
         "automate": "go up",
         "directions": {
             "UP": {
-                "desc": "You see stairs leading up to the plane where you see Dr. Plimph disappearing inside. Time to GO UP?",
+                "desc": "GO UP to follow him?",
                 "room": "the_cave"
             },
         }

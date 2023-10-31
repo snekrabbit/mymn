@@ -1,6 +1,7 @@
 # TODO
 
 ## mymn
+- [ ] complain about bad dirs
 - [ ] print direction messages on screen in enter()
 - [ ] beautify the text for each room and room transition
 - [ ] Show commands in help()
