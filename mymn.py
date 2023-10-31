@@ -8,19 +8,25 @@ def get_room():
     return rooms.current_room
 
 def enter(room):
-    utils.trace ("entering " + repr(room))
     rooms.current_room = room
+
+    print("")
+    utils.say("ENTER <" + room["name"] + ">")
     utils.say(get_room()["enter"])
+    print("")
+    if room.get("directions"):
+        for dir, desc in room["directions"].items():
+            utils.say(desc['desc'] + " (" + dir +")")
+    print("")
 
 def exit(room):
-    utils.trace ("exiting " + repr(room))
     exit_msg = room.get("exit")
     if exit_msg:
         utils.say(exit_msg)
+    utils.say("EXIT <" + room["name"] + ">")
 
 def act(cmd):
     utils.trace ("you said " + cmd)
-
     current_room = get_room()
 
     if cmd == "quit":
@@ -59,14 +65,16 @@ def move(from_room, to_room):
     enter(to_room)
 
 def loop():
-    utils.trace("looping inside room " + repr(rooms.current_room))
+    utils.trace("looping inside room " + rooms.current_room["name"])
     cmd = get_room().get("automate")
     if cmd:
         utils.type("> " + cmd)
     else:
         # no automate key, ask user
+        print("")
         cmd = input("> ")
 
+    print("")
     act(cmd)
     loop()
 
