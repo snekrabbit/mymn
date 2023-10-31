@@ -7,7 +7,7 @@ At the plane stairs, you pause. Is this crazy?""",
         "automate": "go up",
         "directions": {
             "UP": {
-                "desc": "stairs leading up to the plane where you see Dr. Plimph disappearing inside. Time to GO UP?",
+                "desc": "You see stairs leading up to the plane where you see Dr. Plimph disappearing inside. Time to GO UP?",
                 "room": "the_cave"
             },
         }
@@ -36,7 +36,7 @@ The door slides upward with a loud crack!""",
         "exit": None,
         "desc": "A dark room with stone walls and floor",
         "directions": {
-            "N": {"desc": "a glowing door", "room": "the_end"},
+            "N": {"desc": "You see a glowing door", "room": "the_end"},
         }
     },
     "the_end": {
@@ -59,6 +59,4 @@ def get_room_name(room):
     for k, v in rooms.rooms.items():
         if v == room:
             return k
-    raise Exception("unknown room " + repr(room)) 
-
-
+    raise Exception("unknown room " + repr(room))

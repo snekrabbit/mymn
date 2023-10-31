@@ -13,11 +13,10 @@ def enter(room):
     print("")
     utils.say("ENTER <" + room["name"] + ">")
     utils.say(get_room()["enter"])
-
     print("")
     if room.get("directions"):
         for dir, desc in room["directions"].items():
-            utils.say("  (" + dir +"): You see " + desc['desc'])
+            utils.say(desc['desc'] + " (" + dir +")")
     print("")
 
 def exit(room):
