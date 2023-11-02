@@ -11,6 +11,7 @@ def enter(room):
     rooms.current_room = room
 
     print("")
+    utils.say("...", 0.2)
     utils.say("ENTER <" + room["name"] + ">")
     utils.say(get_room()["enter"])
     print("")
@@ -32,6 +33,7 @@ def act(cmd):
         lose()
         return
 
+    dir = None
     if cmd in ["go up", "go u", "up", "u"]:
         dir = "UP"
     elif cmd in ["go down", "go d", "down", "d"]:
@@ -60,7 +62,6 @@ def act(cmd):
 
 def move(from_room, to_room):
     exit(from_room)
-    utils.say("...", 0.2)
     enter(to_room)
 
 def loop():
