@@ -3,6 +3,7 @@ import rooms
 import utils
 import time
 import sys
+import config
 
 def get_room():
     return rooms.current_room
@@ -78,17 +79,18 @@ def loop():
     act(cmd)
     loop()
 
+def lose():
+    print("GAME OVER")
+    sys.exit (0)
+
 def begin():
+    config.parse_args()
+
     print ("WELCOME TO M Y M N")
     un = input("ENTER USERNAME\n> ")
     print ("WELCOME " + un)
 
     enter(rooms.current_room)
     loop()
-
-def lose():
-    print("GAME OVER")
-    sys.exit (0)
-
 
 begin()

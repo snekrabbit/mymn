@@ -1,6 +1,7 @@
 import os
 import time
 import sys
+from config import CONFIG
 
 VERBOSE = False
 def trace(msg):
@@ -31,16 +32,20 @@ def say(msg, char_wait=0.01, line_wait=1):
             if last_c == "\n":
                 continue
             else:
-                time.sleep(line_wait)
+                nap(line_wait)
                 print("")
         else:
-            time.sleep(char_wait)
+            nap(char_wait)
         last_c = c
     print("")
 
 def type(msg):
-    time.sleep(1.5)
+    nap(1.5)
     say(msg, 0.15, 0.15)
-    time.sleep(0.5)
+    nap(0.5)
 
-
+def nap(secs):
+    if CONFIG.get("FAST"):
+        return
+    else:
+        time.sleep(secs)

@@ -1,7 +1,9 @@
 # TODO
 
 ## mymn
-- [ ] makes fast
+- [ ] consolidate commands.py (put all commands in one place)
+- [ ] disable input during text
+- [x] *makes fast*
 - [ ] fast forward (jump to room.name)
 - [ ] facts (keep facts across runs)
 - [x] complain about bad dirs
@@ -13,7 +15,6 @@
 - [ ] Continue story
 - [ ] automate for cave room
 - [ ] -t for trace mode
-- [ ] -s for starting room
 - [ ] add utils.fact('username') to read from user or memory file
 
 ## story ideas
