@@ -3,9 +3,8 @@ import time
 import sys
 from config import CONFIG
 
-VERBOSE = False
 def trace(msg):
-    if VERBOSE:
+    if CONFIG.get("VERBOSE"):
         print("### " + msg)
 
 def prompt_until(msg, until, tries=4):
