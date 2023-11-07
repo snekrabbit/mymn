@@ -1,3 +1,4 @@
+import curses
 import os
 import rooms
 import utils
@@ -83,8 +84,9 @@ def lose():
     print("GAME OVER")
     sys.exit (0)
 
-def begin():
+def begin(window):
     config.parse_args()
+    #config.setup_screen(window)
 
     print ("WELCOME TO M Y M N")
     un = input("ENTER USERNAME\n> ")
@@ -93,4 +95,5 @@ def begin():
     enter(rooms.current_room)
     loop()
 
-begin()
+#curses.wrapper(begin) # resets the terminal to sane values if we exit unexpectedly
+begin(None)
