@@ -14,7 +14,7 @@
 - [x] Complain if 'boop' action
 - [ ] Continue story
 - [ ] automate for cave room
-- [ ] -t for trace mode
+- [x] -t for trace mode
 - [ ] add utils.fact('username') to read from user or memory file
 
 ## story ideas
