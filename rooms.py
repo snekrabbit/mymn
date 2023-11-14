@@ -1,5 +1,6 @@
 rooms = {
     "the_plane": {
+        "desc": "the plane to siberia",
         "enter": """Dr. Plimph just welcomed you to Cairo for your egyptology internship, your dream job!
 But before you can unpack your bags he says that you're both going to Siberia to examine a mysterious cave covered in hieroglyphics.
 You hesitate at the stairs of the plane as you see Dr. Plimph disappear inside.""",

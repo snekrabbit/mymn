@@ -1,21 +1,22 @@
 # TODO
 
 ## mymn
-- [ ] consolidate commands.py (put all commands in one place)
+- [ ] accept any case of input
+- [ ] accept direction abbreviations
 - [ ] disable input during text
-- [x] *makes fast*
 - [ ] fast forward (jump to room.name)
-- [ ] facts (keep facts across runs)
-- [x] complain about bad dirs
-- [x] print direction messages on screen in enter()
-- [ ] beautify the text for each room and room transition
+- [ ] consolidate commands.py (put all commands in one place)
 - [ ] ***Show commands in help()***
-- [ ] Write command file
-- [x] Complain if 'boop' action
 - [ ] Continue story
 - [ ] automate for cave room
-- [x] -t for trace mode
+- [ ] (curses) draw the map on the screen
 - [ ] add utils.fact('username') to read from user or memory file
+- [x] beautify the text for each room and room transition
+- [x] -t for trace mode
+- [x] Complain if 'boop' action
+- [x] complain about bad dirs
+- [x] *makes fast*
+- [x] print direction messages on screen in enter()
 
 ## story ideas
 - [ ] you fall down a hole into the lower depths
