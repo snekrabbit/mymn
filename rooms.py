@@ -26,15 +26,20 @@ You hesitate at the stairs of the plane as you see Dr. Plimph disappear inside."
     },
     "the_door": {
         "enter": """The gigantic door is covered in hieroglyphics. Oh, that must be why they needed Dr. Plimph!
-He scans the text, starts laughing, and puts his finger in the belly-button of the small goblin in the corner.
-The door slides upward with a loud crack!""",
+He scans the text, starts laughing, and puts his finger in the belly-button of the small goblin in the corner.""",
+        "directions": {
+            "W": {"desc": "The door slides upward with a loud crack! Dr. Plimph runs inside, still lauhghing. Are you really going to follow this man?", "room": "the_hallway"},
+         },
     },
-    "the_entrance": {
-        "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall, giggling maniacally. You stay behind, nervously wondering if you should follow.",
+    "the_hallway": {
+        "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall, giggling into his raised sleeve. You stay behind, nervously wondering if you should follow.",
+        "directions": {
+            "DOWN": {"desc": "You see a glowing rock. As you bend to look closer, you realize you're already sinking into quicksand.", "room": "the_pit"},
+         },
+        "automate": "go down",
     },
-
     "the_pit": {
-        "enter": "You slide to a halt covered in dust.",
+        "enter": "That was horrible! You emerged from the sand with a sticky plop and drop to the floor.",
         "exit": None,
         "desc": "A dark room with stone walls and floor",
         "directions": {
@@ -51,7 +56,7 @@ The door slides upward with a loud crack!""",
     }
 }
 
-current_room = rooms["the_plane"]
+current_room = rooms["the_hallway"]
 
 # add the name to all the room objects
 for name, room in rooms.items():

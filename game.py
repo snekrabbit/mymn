@@ -48,6 +48,7 @@ class Game(object):
             return
 
         dir = None
+        cmd = cmd.lower()
         if cmd in ["go up", "go u", "up", "u"]:
             dir = "UP"
         elif cmd in ["go down", "go d", "down", "d"]:

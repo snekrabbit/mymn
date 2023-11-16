@@ -1,13 +1,14 @@
 # TODO
 
 ## mymn
-- [ ] accept any case of input
-- [ ] accept direction abbreviations
+- [ ] custom exit messages per direction
+- [x] accept any case of input
+- [x] accept direction abbreviations
 - [ ] disable input during text
 - [ ] fast forward (jump to room.name)
 - [ ] consolidate commands.py (put all commands in one place)
 - [ ] ***Show commands in help()***
-- [ ] Continue story
+- [x] Continue story
 - [ ] automate for cave room
 - [ ] (curses) draw the map on the screen
 - [ ] add utils.fact('username') to read from user or memory file
