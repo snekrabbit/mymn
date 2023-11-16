@@ -9,7 +9,9 @@ def parse_args():
           CONFIG["FAST"] = True
       elif arg == "-t":
           CONFIG["VERBOSE"] = True
-        
+      else:
+          CONFIG["BEGIN"] = arg
+
 # to get regular line output we may need to https://stackoverflow.com/questions/14010073/print-to-standard-console-in-curses
 def setup_screen(window):
     window.scrollok(1)

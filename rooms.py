@@ -54,8 +54,6 @@ He scans the text, starts laughing, and puts his finger in the belly-button of t
     }
 }
 
-current_room = rooms["the_hallway"]
-
 # add the name to all the room objects
 for name, room in rooms.items():
     room['name'] = name

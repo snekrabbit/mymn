@@ -8,19 +8,23 @@ import sys
 import config
 
 class Game(object):
-    def __init__(self, username):
+    def __init__(self, username, begin_room):
         self.username = username
+        self.current_room = None
 
-    def get_room(self):
-        return rooms.current_room
+        if not rooms.rooms.get(begin_room):
+            print("unknown starting room: " + begin_room)
+            exit(-1)
+        else:
+            self.current_room = rooms.rooms[begin_room]
 
     def enter(self, room):
-        rooms.current_room = room
+        self.current_room = room
 
         print("")
         utils.say("...", 0.2)
         utils.say("ENTER <" + room["name"] + ">")
-        utils.say(self.get_room()["enter"])
+        utils.say(self.current_room["enter"])
         print("")
         if room.get("directions"):
             for dir, desc in room["directions"].items():
@@ -34,7 +38,7 @@ class Game(object):
 
     def act(self, cmd):
         utils.trace ("you said " + cmd)
-        current_room = self.get_room()
+        current_room = self.current_room
 
         # search for a command that matches the input
         command = None
