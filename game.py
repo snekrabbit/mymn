@@ -84,19 +84,18 @@ class Game(object):
         sys.exit (0)
 
     def loop(self):
-        utils.trace("looping inside room " + rooms.current_room["name"])
-        #cmd = self.get_room().get("automate")
-        #if cmd:
-        #    utils.type("> " + cmd)
-        #else:
-        # no automate key, ask user
-        print("")
-        cmd = input("> ")
+        utils.trace("looping inside room " + self.current_room["name"])
+        cmd = self.current_room.get("automate")
+        if cmd:
+           utils.type("> " + cmd)
+        else:
+            print("")
+            cmd = input("> ")
 
         print("")
         self.act(cmd)
         self.loop()
 
     def run(self):
-        self.enter(rooms.current_room)
+        self.enter(self.current_room)
         self.loop()

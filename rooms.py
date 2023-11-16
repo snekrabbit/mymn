@@ -5,7 +5,6 @@ rooms = {
 But before you can unpack your bags he says that you're both going to Siberia to examine a mysterious cave covered in hieroglyphics.
 You hesitate at the stairs of the plane as you see Dr. Plimph disappear inside.""",
         "exit": """The things I do for this job""",
-        "automate": "go up",
         "directions": {
             "UP": {
                 "desc": "GO UP to follow him?",
@@ -16,7 +15,6 @@ You hesitate at the stairs of the plane as you see Dr. Plimph disappear inside."
     },
     "the_cave": {
         "enter": "You hurried from the airport and stopped suddenly on a small road. To the North, you can see the uncovered cave door",
-        "automate": "go north",
         "directions": {
             "N": {
                 "desc": "Man that's scary, but this is your job right?",
