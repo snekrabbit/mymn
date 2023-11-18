@@ -4,7 +4,7 @@ import curses
 CONFIG = {}
 
 def parse_args():
-    for arg in sys.argv:
+    for arg in sys.argv[1:]:
       if arg == "-f":
           CONFIG["FAST"] = True
       elif arg == "-t":
