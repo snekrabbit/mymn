@@ -2,6 +2,9 @@
 
 ## mymn
 - [ ] custom exit messages per direction
+- [ ] To escape siren singing, go to spawn/moss room, plug ears with moss
+- [ ] figure out randomize room
+- [ ] Convert hallway room "DOWN" to "LOOK" action
 - [x] accept any case of input
 - [x] accept direction abbreviations
 - [ ] disable input during text

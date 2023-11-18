@@ -71,7 +71,12 @@ class Game(object):
         if dirs:
             next_room_dict = dirs.get(dir)
             if next_room_dict:
-                next_room = rooms.rooms[next_room_dict["room"]]
+                next_room_name = next_room_dict["room"]
+                next_room = rooms.rooms[next_room_name]
+                action = next_room_dict.get("action")
+                if action:
+                    utils.say(action)
+
 
         if not next_room:
             utils.say("we can't '" + cmd + "' in here")

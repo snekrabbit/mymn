@@ -12,7 +12,7 @@ def begin(window):
     config.parse_args()
     #config.setup_screen(window)
     begin_room = config.CONFIG.get("BEGIN") or "the_plane"
-
+    print ("begin " + begin_room)
     print ("WELCOME TO M Y M N")
     un = input("ENTER USERNAME\n> ")
     print ("WELCOME " + un)
