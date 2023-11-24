@@ -1,24 +1,37 @@
 import curses
 import os
+import sys
+import time
+
 import commands
 import rooms
-import utils
-import time
-import sys
-import config
 import game
 
-def begin(window):
-    config.parse_args()
-    #config.setup_screen(window)
-    begin_room = config.CONFIG.get("BEGIN") or "the_plane"
-    print ("begin " + begin_room)
-    print ("WELCOME TO M Y M N")
-    un = input("ENTER USERNAME\n> ")
-    print ("WELCOME " + un)
+from term import Term
 
-    g = game.Game(un, begin_room)
-    g.run()
+def parse_args(args):
+    config = {}
 
-#curses.wrapper(begin) # resets the terminal to sane values if we exit unexpectedly
-begin(None)
+    for arg in args:
+      if arg == "-f":
+          config["FAST"] = True
+      elif arg == "-t":
+          config["VERBOSE"] = True
+      else:
+          config["BEGIN"] = arg
+
+    return config
+
+def begin():
+    config = parse_args(sys.argv[1:])
+    try:
+        Term.initialize(config.get("FAST"),
+                        config.get("VERBOSE"))
+        Term.trace("initialized terminal")
+
+        g = game.Game(config.get("BEGIN"))
+        g.run()
+    finally:
+        Term.restore()
+
+begin()
