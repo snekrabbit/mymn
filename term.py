@@ -27,81 +27,69 @@ def init_curses():
     return win
 
 class Term(object):
+    def __init__(self, fast=False, verbose=False):
+        self.fast = fast
+        self.verbose = verbose
+        self.win = init_curses()
 
-    @classmethod
-    def initialize(cls, fast=False, verbose=False):
-        cls.fast = fast
-        cls.verbose = verbose
-        cls.win = init_curses()
-
-    @classmethod
-    def restore(cls):
+    def restore(self):
         curses.endwin()
 
-    @classmethod
-    def clear(cls):
-        cls.win.refresh()
+    def clear(self):
+        self.win.refresh()
 
-    @classmethod
-    def input(cls, msg=""):
-        Term.print(msg)
-        return cls.win.getstr().decode("utf-8")
+    def input(self, msg=""):
+        self.print(msg)
+        return self.win.getstr().decode("utf-8")
 
-    @classmethod
-    def print(cls, msg, end=""):
+    def print(self, msg, end=""):
         print(msg, end=end)
         sys.stdout.flush()
 
-    @classmethod
-    def println(cls, msg=""):
-        cls.print(msg, end="\n\r")
+    def println(self, msg=""):
+        self.print(msg, end="\n\r")
 
-    @classmethod
-    def trace(cls, msg):
-        if cls.verbose:
-            cls.println("### " + msg)
+    def trace(self, msg):
+        if self.verbose:
+            self.println("### " + msg)
 
-    @classmethod
-    def prompt_until(cls, msg, until, tries=4):
-        cls.say(msg)
+    def prompt_until(self, msg, until, tries=4):
+        self.say(msg)
         count = 1
         while count < tries:
             count = count+1
-            cls.print("> ")
+            self.print("> ")
             i = input()
             if i == until:
                 return True
             else:
-                cls.say("INCORRECT\n"+str(tries-count)+" TRIES LEFT")
+                self.say("INCORRECT\n"+str(tries-count)+" TRIES LEFT")
         if count == tries:
             return False
 
-    @classmethod
-    def say(cls, msg, char_wait=0.01, line_wait=1):
+    def say(self, msg, char_wait=0.01, line_wait=1):
         # os.system("say "+msg)
         last_c = None
         for c in msg:
-            cls.print(c)
+            self.print(c)
             if c == "\n":
                 if last_c == "\n":
                     continue
                 else:
-                    cls.nap(line_wait)
-                    cls.println("")
+                    self.nap(line_wait)
+                    self.println("")
             else:
-                cls.nap(char_wait)
+                self.nap(char_wait)
             last_c = c
-        cls.println("")
+        self.println("")
 
-    @classmethod
-    def type(cls, msg):
-        cls.nap(1.5)
-        cls.say(msg, 0.15, 0.15)
-        cls.nap(0.5)
+    def type(self, msg):
+        self.nap(1.5)
+        self.say(msg, 0.15, 0.15)
+        self.nap(0.5)
 
-    @classmethod
-    def nap(cls, secs):
-        if cls.fast:
+    def nap(self, secs):
+        if self.fast:
             return
         else:
             time.sleep(secs)

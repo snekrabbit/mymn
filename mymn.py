@@ -25,11 +25,10 @@ def parse_args(args):
 def begin():
     config = parse_args(sys.argv[1:])
     try:
-        Term.initialize(config.get("FAST"),
-                        config.get("VERBOSE"))
-        Term.trace("initialized terminal")
+        term = Term(config.get("FAST"), config.get("VERBOSE"))
+        term.trace("initialized terminal")
 
-        g = game.Game(config.get("BEGIN"))
+        g = game.Game(term, config.get("BEGIN"))
         g.run()
     finally:
         Term.restore()

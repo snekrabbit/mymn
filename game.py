@@ -8,7 +8,9 @@ import rooms
 from term import Term
 
 class Game(object):
-    def __init__(self, begin_room):
+    def __init__(self, term, begin_room):
+        self.term = term
+
         begin_room = begin_room or "the_plane"
         self.current_room = None
 
@@ -20,23 +22,22 @@ class Game(object):
     def enter(self, room):
         self.current_room = room
 
-        Term.println()
-        Term.say("...", 0.2)
-        Term.say("ENTER <" + room["name"] + ">")
-        Term.say(self.current_room["enter"])
-        Term.println()
+        self.term.println()
+        self.term.say("<" + room["name"] + ">")
+        self.term.say(self.current_room["enter"])
+        self.term.println()
         if room.get("directions"):
             for dir, desc in room["directions"].items():
-                Term.say(desc['desc'] + " (" + dir +")")
+                self.term.say(desc['desc'] + " (" + dir +")")
 
     def exit(self, room):
         exit_msg = room.get("exit")
         if exit_msg:
-            Term.say(exit_msg)
-        #Term.say("EXIT <" + room["name"] + ">")
+            self.term.say(exit_msg)
+        #self.term.say("EXIT <" + room["name"] + ">")
 
     def act(self, cmd):
-        Term.trace ("you said " + cmd)
+        self.term.trace ("you said " + cmd)
 
         # search for a command that matches the input
         command = None
@@ -73,11 +74,11 @@ class Game(object):
                 next_room = rooms.rooms[next_room_name]
                 action = next_room_dict.get("action")
                 if action:
-                    Term.say(action)
+                    self.term.say(action)
 
 
         if not next_room:
-            Term.say("we can't '" + cmd + "' in here")
+            self.term.say("we can't '" + cmd + "' in here")
             return
 
         self.move(self.current_room, next_room)
@@ -87,27 +88,27 @@ class Game(object):
         self.enter(to_room)
 
     def lose(self):
-        Term.print("GAME OVER")
+        self.term.print("GAME OVER")
         sys.exit (0) #raise Lose
 
     def loop(self):
-        Term.trace("looping inside room " + self.current_room["name"])
+        self.term.trace("looping inside room " + self.current_room["name"])
         cmd = self.current_room.get("automate")
         if cmd:
-            Term.type("> " + cmd)
+            self.term.type("> " + cmd)
         else:
-            Term.println()
-            cmd = Term.input("> ")
+            self.term.println()
+            cmd = self.term.input("> ")
 
-        Term.println()
+        self.term.println()
         self.act(cmd)
         self.loop()
 
     def run(self):
-        Term.println("WELCOME TO M Y M N")
-        # Term.println("ENTER USERNAME")
-        # self.username = Term.input("> ")
-        # Term.println("WELCOME " + self.username)
+        self.term.println("WELCOME TO M Y M N")
+        # self.term.println("ENTER USERNAME")
+        # self.username = self.term.input("> ")
+        # self.term.println("WELCOME " + self.username)
 
         self.enter(self.current_room)
         self.loop()
