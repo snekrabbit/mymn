@@ -65,6 +65,8 @@ class Game(object):
             dir = "S"
         elif cmd in ["go west", "go w", "west", "w"]:
             dir = "W"
+        elif cmd in ["look", "l"]:
+            dir = "LOOK"
 
         next_room = None
         dirs = current_room.get("directions")

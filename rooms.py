@@ -32,13 +32,13 @@ He scans the text, starts laughing, and puts his finger in the belly-button of t
     "the_hallway": {
         "enter": "'Touch nothing!' shouts Dr. Plimph, as he hurries down the darkened hall, giggling into his sleeve. You stay behind, nervously wondering if you should follow.",
         "directions": {
-            "DOWN": {
+            "LOOK": {
                 "desc": "You see a glowing rock. As you bend to look closer, you realize you're sinking into quicksand.", 
                 "room": "the_pit", 
                 "action": "As the sand closes over your head, you start moving faster as you realize you're sliding down a sandy tube..."
             },
          },
-        "automate": "DOWN",
+        "automate": "LOOK",
     },
     "the_pit": {
         "enter": "That was horrible! You emerged from the sand with a sticky plop and drop to the floor.",
