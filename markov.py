@@ -15,9 +15,6 @@ def file_words(f):
 # W_WORDS = {word: {nextWord: count}}
 W_WORDS = {}
 
-# W_COUNTS = {word: countOfNextWords}
-W_COUNTS = {}
-
 def index(f):
     prior = None
     words = file_words(f)
@@ -25,33 +22,29 @@ def index(f):
     for word in words:
         if prior:
             # remember prior+word
-            next_words = W_WORDS.get(prior, {})
-            num_next = next_words.get(word, 0)
-            next_words[word] = num_next + 1
+            next_words = W_WORDS.get(prior, [])
+            next_words.append(word)
             W_WORDS[prior] = next_words
-
-            c = W_COUNTS.get(prior, 0)
-            W_COUNTS[prior] = c + 1
 
         # remember it for the next iteration
         prior = word
-#print(json.dumps(W_WORDS))
 
 def generate(n):
-    rand_ix = random.randint(0, len(W_WORDS)-1)
+    # pick a random first word of the sentence
+    all_words = list(W_WORDS.keys())
+    rand_word_ix = random.randint(0, len(all_words)-1)
+    first = all_words[rand_word_ix]
+    sentence = [first]
 
-    prior = list(W_WORDS.keys())[rand_ix]
-    all = [prior]
-    for i in range(n):
-        next_words = W_WORDS[prior]
-        next_ix = random.randint(0, len(next_words)-1)
-        next = list(next_words.keys())[next_ix]
-        all.append(next)
-        prior = next
-        i = i+1
-        if i>n:
-            break
-    return " ".join(all)
+    # add the next N-1 random words most likely to follow
+    for i in range(n-1):
+        next_words = W_WORDS[sentence[-1]] 
+        next_ix = random.randint(0, len(next_words)-1) 
+        next = next_words[next_ix] 
+        sentence.append(next)
 
-index(SL)
-print(generate(25))
+    return " ".join(sentence)
+
+index(TI)
+#print(json.dumps(W_WORDS))
+print(generate(50))
